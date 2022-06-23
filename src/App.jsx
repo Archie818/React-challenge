@@ -1,31 +1,28 @@
 import React, { Component} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate  } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./pages/Home";
+import Male from "./pages/Male";
+import Female from "./pages/Female";
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import "./global.css"
 
 /**
  * The starting page for your App
  */
 
-class App extends Component{
-  render(){
+const  App = ()=> {
     return(
       <>
         <BrowserRouter>
           <Header />
-          <main>
-            <section>
                 <Routes>
-                  <Route path={"/"} element={<Home />} />
+                    <Route path='/' element={<Navigate to="/male" />} /> 
+                    <Route path="/male" element={<Male />} />
+                    <Route path="/female" element={<Female />} />
                 </Routes>
-            </section>
-          </main>
         </BrowserRouter>
       </>
-
     );
-  }
 }
 
 export default App;
